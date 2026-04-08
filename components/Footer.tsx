@@ -1,4 +1,4 @@
-import { Sparkles, Phone, Mail, MapPin, Facebook, Twitter } from "lucide-react";
+import { Sparkles, Phone, Mail, MapPin } from "lucide-react";
 import { NAV_ITEMS, SERVICES } from "@/lib/data";
 import { Instagram, Linkedin, MessageCircle } from "lucide-react";
 
