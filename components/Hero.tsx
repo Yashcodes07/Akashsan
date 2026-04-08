@@ -150,7 +150,6 @@ import { ArrowDown, Star } from "lucide-react";
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // ✅ Parallax restored (ONLY on right side now)
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const el = containerRef.current;
@@ -172,8 +171,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden grain">
-      
+    <section className="relative min-h-screen flex items-center overflow-hidden grain pt-28 md:pt-32">
+      {/* 🔥 TOP PADDING FIX ADDED */}
+
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-gold/5 blur-[120px]" />
@@ -191,26 +191,26 @@ export default function Hero() {
       />
 
       {/* Layout */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 grid lg:grid-cols-2 gap-10 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 grid lg:grid-cols-2 gap-12 items-center">
 
         {/* 🔥 LEFT SIDE */}
-        <div className="text-left">
+        <div className="text-center lg:text-left">
           
-          {/* ✅ LOGO IMAGE ADDED */}
-          <div className="flex items-center gap-3 mb-6">
+          {/* Logo */}
+          <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
             <img
-              src="/images/logo.jpeg" // 👉 put your image in public/images/logo.jpg
+              src="/images/logo.jpeg"
               alt="AkashSan Logo"
-              className="w-20 h-20 object-cover rounded-full border border-gold/30"
+              className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-full border border-gold/30"
             />
-            <span className="font-display text-5xl font-semibold tracking-wide">
-            <span className="text-gold">Akash</span>
-            <span className="text-obsidian-50">San</span>
-          </span>
+            <span className="font-display text-3xl sm:text-5xl font-semibold tracking-wide">
+              <span className="text-gold">Akash</span>
+              <span className="text-obsidian-50">San</span>
+            </span>
           </div>
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5 mb-6">
+          <div className="inline-flex items-center justify-center lg:justify-start gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5 mb-6">
             <Star className="w-3.5 h-3.5 text-gold fill-gold" />
             <span className="text-xs text-gold tracking-widest uppercase">
               Premium Cleaning Service
@@ -218,7 +218,7 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-obsidian-50 mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-light text-obsidian-50 mb-6 leading-tight">
             Professional Cleaning  
             <span className="block gold-shimmer font-semibold">
               You Can Trust
@@ -226,13 +226,13 @@ export default function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="text-obsidian-100/60 max-w-md mb-8">
+          <p className="text-sm sm:text-base text-obsidian-100/60 max-w-md mx-auto lg:mx-0 mb-8">
             We deliver spotless homes and offices across Delhi NCR with premium,
             reliable, and detail-focused cleaning services.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <button
               onClick={() =>
                 document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
@@ -254,52 +254,52 @@ export default function Hero() {
         </div>
 
         {/* 🔥 RIGHT SIDE */}
-       <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center items-center mt-10 lg:mt-0">
 
-  {/* 🔥 OUTER GLOW RING */}
-  <div className="absolute w-[700px] h-[700px] rounded-full border border-gold/10 animate-spin-slower opacity-60" />
+          {/* Responsive Rings */}
+          <div className="absolute w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] lg:w-[700px] lg:h-[700px] rounded-full border border-gold/10 animate-spin-slower opacity-60" />
 
-  {/* 🔥 MIDDLE RING */}
-  <div className="absolute w-[550px] h-[550px] rounded-full border border-white/10 animate-spin-slow" />
+          <div className="absolute w-[260px] h-[260px] sm:w-[400px] sm:h-[400px] lg:w-[550px] lg:h-[550px] rounded-full border border-white/10 animate-spin-slow" />
 
-  {/* 🔥 INNER RING */}
-  <div className="absolute w-[400px] h-[400px] rounded-full border border-gold/20 animate-spin-reverse" />
+          <div className="absolute w-[180px] h-[180px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px] rounded-full border border-gold/20 animate-spin-reverse" />
 
-  {/* 🔥 SOFT GLOW BACKGROUND */}
-  <div className="absolute w-[500px] h-[500px] rounded-full bg-gold/5 blur-[100px]" />
+          <div className="absolute w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full bg-gold/5 blur-[80px]" />
 
-  {/* 🔥 CONTENT (PARALLAX) */}
-  <div
-    ref={containerRef}
-    className="relative text-center max-w-xl transition-transform duration-200 ease-out"
-  >
-    <h1 className="text-5xl sm:text-6xl font-light leading-tight">
-      <span className="block text-obsidian-50">Spotless</span>
-      <span className="block gold-shimmer font-semibold">Perfection</span>
-      <span className="block text-obsidian-50">Delivered.</span>
-    </h1>
+          {/* Content */}
+          <div
+            ref={containerRef}
+            className="relative text-center max-w-xs sm:max-w-md"
+          >
+            <h1 className="text-3xl sm:text-5xl font-light leading-tight">
+              <span className="block text-obsidian-50">Spotless</span>
+              <span className="block gold-shimmer font-semibold">Perfection</span>
+              <span className="block text-obsidian-50">Delivered.</span>
+            </h1>
 
-    {/* Stats */}
-    <div className="mt-10 flex justify-center gap-8">
-      {[
-        { value: "100+", label: "Cleans" },
-        { value: "98%", label: "Happy" },
-        { value: "2+Yrs", label: "Experience" },
-      ].map((s) => (
-        <div key={s.label}>
-          <p className="text-xl font-semibold text-gold">{s.value}</p>
-          <p className="text-xs text-obsidian-100/50">{s.label}</p>
+            <div className="mt-8 flex justify-center gap-6">
+              {[
+                { value: "100+", label: "Cleans" },
+                { value: "98%", label: "Happy" },
+                { value: "2+Yrs", label: "Experience" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <p className="text-lg sm:text-xl font-semibold text-gold">
+                    {s.value}
+                  </p>
+                  <p className="text-xs text-obsidian-100/50">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
       </div>
 
       {/* Scroll */}
       <button
         onClick={scrollToServices}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold/40 hover:text-gold"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-gold/40 hover:text-gold"
       >
         <ArrowDown className="animate-bounce" />
       </button>
